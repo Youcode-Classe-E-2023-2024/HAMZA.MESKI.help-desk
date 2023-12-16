@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['user-id'] = $user_record['id'];
 
                 // log user in
-                header('location: ' . ROOT_URL . 'view/home.php');
+                header('location: ' . ROOT_URL . 'view/home.html');
             } else {
                 $_SESSION['signin'] = "Please check your input";
             }

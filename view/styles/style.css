@@ -1,3 +1,7 @@
 .HIDDEN {
-    display: none;
+    display: none !important;
+}
+.BLOCK {
+    display: flex !important;
+    gap: 1rem;
 }
