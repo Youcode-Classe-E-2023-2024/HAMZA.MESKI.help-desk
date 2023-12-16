@@ -23,7 +23,7 @@
     
         private function renderUserProfile($user){
             return <<<HEREDOC
-                <div id="profileButton" class="flex items-center gap-2 cursor-pointer">
+                <div class="profileButton flex items-center gap-2 cursor-pointer">
                     <strong>{$user->username}</strong>
                     <div class="h-12 w-12 rounded-full bg-black" style="background-image: url('../images/{$user->avatar}'); background-size: cover;"></div>
                 </div>
