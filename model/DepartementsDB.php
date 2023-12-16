@@ -25,26 +25,26 @@ class DepartmentsDB {
         }
     }
 
-    public function displayDepartments($departmentId) {
+    public function displayDepartments() {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM departements WHERE id = :id");
-            $stmt->bindParam(':id', $departmentId, PDO::PARAM_INT);
-
+            $stmt = $this->pdo->prepare("SELECT * FROM departements");
+    
             // Execute the statement
             $stmt->execute();
-
+    
             // Fetch all rows as an associative array
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    
             return $result;
         } catch (PDOException $e) {
             die('Display failed: ' . $e->getMessage());
         }
     }
+    
 }
 
 // Example usage:
-$departments_database = new DepartmentsDB('localhost', 'your_db_name', 'your_username', 'your_password');
+$departments_database = new DepartmentsDB('localhost', 'desk', 'root', '');
 
 // // Display all departments
 // $allDepartments = $departments_database->displayDepartments(1);

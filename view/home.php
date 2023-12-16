@@ -35,12 +35,9 @@
                     <ion-icon name="chevron-back-outline" id="close_icon" class="text-3xl cursor-pointer"></ion-icon>
                 </main>
                 <!-- All the tickets will appear here -->
-                <main id="tickets_container" class="w-full col-span-4 grid grid-cols-3">
-                    <div>hello</div>
-                    <div>hello</div>
-                    <div>hello</div>
-                    <div>hello</div>
-                </main>
+                <form id="tickets_container" class="w-full col-span-4 grid grid-cols-3 p-3 gap-x-3 gap-y-6 overflow-auto">
+                    <?php require_once '../controller/tickets_container.php' ?>
+                </form>
             </section>
         </section>
         <!-- child2 -->

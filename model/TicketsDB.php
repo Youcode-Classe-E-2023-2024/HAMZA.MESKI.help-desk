@@ -51,7 +51,7 @@ class TicketsDB {
             $stmt->execute();
     
             // Fetch all rows as an associative array
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
     
             return $result;
         } catch (PDOException $e) {

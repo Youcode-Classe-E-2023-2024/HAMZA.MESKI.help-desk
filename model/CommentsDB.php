@@ -88,7 +88,7 @@ class CommentsDB {
 }
 
 // Example usage:
-$comments_database = new CommentsDB('localhost', 'your_db_name', 'your_username', 'your_password');
+$comments_database = new CommentsDB('localhost', 'desk', 'root', '');
 
 // // Insert comment
 // $comments_database->insertComment(1, 2, 'This is a comment on the ticket.');
