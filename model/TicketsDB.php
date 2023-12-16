@@ -109,3 +109,6 @@ $ticket_database = new TicketsDB('localhost', 'desk', 'root', '');
 // $ticket_database->deleteTicket(1);
 
 ?>
+
+Do the samething but this time to handle a departements table, 
+but make sure that departement(str) and this time just add display method, no more
