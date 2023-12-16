@@ -1,6 +1,6 @@
 <?php
 require '../controller/constants.php';
-require '../model/Database.php';
+require '../model/UsersDB.php';
 
 // Get signup form data if signup was clicked
 if (isset($_POST['submit'])) {

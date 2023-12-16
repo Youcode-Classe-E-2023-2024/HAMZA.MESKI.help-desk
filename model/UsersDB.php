@@ -63,22 +63,6 @@ class UsersDB {
     }
 
 }
-// tables
+
 $users_database = new UsersDB('localhost', 'desk', 'root', '');
-
-// // Example usage:
-// $database = new UsersDB('localhost', 'desk', 'root', '');
-
-// // Insert user
-// $database->insertUser('John', 'Doe', 'john_doe', 'john@example.com', 'hashed_password', 'avatar.jpg', 1);
-
-// // Display users
-// $users = $database->displayUsersByUsernameOrEmail('john_doe', 'john@example.com');
-// print_r($users);
-
-// // Update user
-// $database->updateUser(1, 'Updated', 'User', 'updated_user', 'updated@example.com', 'updated_password', 'updated_avatar.jpg', 2);
-
-// // Delete user
-// $database->deleteUser(1);
 ?>

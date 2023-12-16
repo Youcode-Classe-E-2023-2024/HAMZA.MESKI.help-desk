@@ -1,3 +1,4 @@
 <?php 
-    echo "HOME";
+    session_start(); 
+    print $_SESSION['user-id'];
 ?>

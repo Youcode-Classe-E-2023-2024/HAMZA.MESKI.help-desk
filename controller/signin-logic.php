@@ -1,6 +1,6 @@
 <?php
 require '../controller/constants.php';
-require '../model/Database.php';
+require '../model/UsersDB.php';
 
 if (isset($_POST['submit'])) {
     // get form data
