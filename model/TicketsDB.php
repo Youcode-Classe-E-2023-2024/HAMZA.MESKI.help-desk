@@ -100,7 +100,7 @@ class TicketsDB {
     }
 }
 
-$ticket_database = new TicketsDB('localhost', 'desk', 'root', '');
+$tickets_database = new TicketsDB('localhost', 'desk', 'root', '');
 
 // // Insert ticket
 // $ticket_database->insertTicket(1, 2, 'Ticket Example', 3, 'In Progress', 'High');
