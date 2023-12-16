@@ -1,5 +1,4 @@
 <?php
-
 class TicketsDB {
     private $host;
     private $dbname;

@@ -1,0 +1,36 @@
+<?php 
+    session_start(); 
+    // print $_SESSION['user-id'];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELP DESK</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- father -->
+    <section id="home_father" class="h-screen ">
+        <nav id="profileButton" class="h-20 bg-pink-500 flex justify-between px-2">
+            <div></div>
+            <div class="flex items-center gap-2 cursor-pointer">
+                <strong>HAMZA MESKI</strong>
+                <div class="h-16 w-16 rounded-full bg-black"></div>
+            </div>
+        </nav>
+        <!-- child1 -->
+        <section id="home_child1" class="HIDDEN w-full h-[88.6%] bg-green-400">
+        </section>
+        <!-- child2 -->
+        <section id="home_child2" class=" w-full h-[88.6%] bg-red-400">
+           
+        </section>
+    </section>
+    <!-- tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- local scripts -->
+    <script src="scripts/switchingPages.js"></script>
+</body>
+</html>
