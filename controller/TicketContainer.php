@@ -34,24 +34,24 @@
         private function renderTicket($ticket, $department)
         {
             return <<<HEREDOC
-                <button class="bg-white shadow-md p-6 rounded-lg h-[296px] cursor-pointer text-left">
+                <button name="ticketId" value="$ticket->id" class="bg-white shadow-md p-6 rounded-lg h-[296px] cursor-pointer text-left">
                     <div class="mb-4">
-                        <strong class="text-gray-700">Ticket ID:</strong> {$ticket->id}
+                        <strong class="text-gray-700">Ticket ID:</strong> $ticket->id
                     </div>
                     <div class="mb-4">
-                        <strong class="text-gray-700">Subject:</strong> {$ticket->subject}
+                        <strong class="text-gray-700">Subject:</strong> $ticket->subject
                     </div>
                     <div class="mb-4">
-                        <strong class="text-gray-700">Department:</strong> {$department->departement}
+                        <strong class="text-gray-700">Department:</strong> $department->departement
                     </div>
                     <div class="mb-4">
-                        <strong class="text-gray-700">Status:</strong> {$ticket->status}
+                        <strong class="text-gray-700">Status:</strong> $ticket->status
                     </div>
                     <div class="mb-4">
-                        <strong class="text-gray-700">Created by:</strong> {$ticket->created_by}
+                        <strong class="text-gray-700">Created by:</strong> $ticket->created_by
                     </div>
                     <div>
-                        <strong class="text-gray-700">Assigned to:</strong> {$ticket->assigned_to}
+                        <strong class="text-gray-700">Assigned to:</strong> $ticket->assigned_to
                     </div>
                 </button>
             HEREDOC;
