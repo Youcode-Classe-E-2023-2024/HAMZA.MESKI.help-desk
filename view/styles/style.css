@@ -5,3 +5,6 @@
     display: flex !important;
     gap: 1rem;
 }
+.GRID4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+}

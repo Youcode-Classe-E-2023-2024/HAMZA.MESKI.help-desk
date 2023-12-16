@@ -17,13 +17,16 @@ const open_section = document.getElementById('open_section');
 const close_section = document.getElementById('close_section');
 const home_child1_son = document.getElementById('home_child1_son');
 
-open_icon.addEventListener('click', function() {
+const tickets_container = document.getElementById('tickets_container'); 
+
+function toggleElements() {
     open_section.classList.toggle('HIDDEN');
     close_section.classList.toggle('HIDDEN');
     home_child1_son.classList.toggle('BLOCK');
-});
-close_icon.addEventListener('click', function() {
-    open_section.classList.toggle('HIDDEN');
-    close_section.classList.toggle('HIDDEN');
-    home_child1_son.classList.toggle('BLOCK');
-});
+    tickets_container.classList.toggle('GRID4');
+}
+  
+open_icon.addEventListener('click', toggleElements);
+close_icon.addEventListener('click', toggleElements);
+
+// -------------tickets_container
