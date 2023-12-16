@@ -62,7 +62,25 @@ class UsersDB {
         }
     }
 
+    public function displayUsers() {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM users");
+    
+            // Execute the statement
+            $stmt->execute();
+    
+            // Fetch all rows as an associative array
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    
+            return $result;
+        } catch (PDOException $e) {
+            die('Display failed: ' . $e->getMessage());
+        }
+    }
+
 }
 
 $users_database = new UsersDB('localhost', 'desk', 'root', '');
+// // Display users
+// $users = $users_database->displayUsers();
 ?>

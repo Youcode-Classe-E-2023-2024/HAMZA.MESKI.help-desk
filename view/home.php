@@ -1,6 +1,5 @@
 <?php 
     session_start(); 
-    // print $_SESSION['user-id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +14,7 @@
     <section id="home_father" class="h-screen ">
         <nav class="h-20 bg-pink-500 flex justify-between px-2">
             <div></div>
-            <div id="profileButton" class="flex items-center gap-2 cursor-pointer">
-                <strong>HAMZA MESKI</strong>
-                <div class="h-16 w-16 rounded-full bg-black"></div>
-            </div>
+            <?php require_once '../controller/logger.php' ?>
         </nav>
         <!-- child1 -->
         <section id="home_child1" class="h-[88.6%]">
@@ -36,7 +32,7 @@
                 </main>
                 <!-- All the tickets will appear here -->
                 <form id="tickets_container" class="w-full col-span-4 grid grid-cols-3 p-3 gap-x-3 gap-y-6 overflow-auto">
-                    <?php require_once '../controller/tickets_container.php' ?>
+                    <?php require_once '../controller/TicketContainer.php' ?>
                 </form>
             </section>
         </section>

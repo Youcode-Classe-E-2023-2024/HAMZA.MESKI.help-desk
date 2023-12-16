@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
                 // Work on avatar
                 // Rename avatar
                 $time = time(); // Make each image name unique using current timestamp
-                $avatar_name = '../images/'.$avatar['name'];
+                $avatar_name = $avatar['name'];
                 $avatar_tmp_name = $avatar['tmp_name'];
                 $avatar_destination_path  = '../images/' . $avatar_name;
 

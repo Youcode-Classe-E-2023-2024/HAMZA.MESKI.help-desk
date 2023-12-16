@@ -2,7 +2,7 @@
     require_once '../model/TicketsDB.php';
     require_once '../model/DepartementsDB.php';
 
-    class TicketDisplay
+    class TicketContainer
     {
         private $ticketDatabase;
         private $departmentDatabase;
@@ -57,6 +57,6 @@
             HEREDOC;
         }
     }
-    $ticketDisplay = new TicketDisplay($tickets_database, $departments_database);
+    $ticketDisplay = new TicketContainer($tickets_database, $departments_database);
     $ticketDisplay->displayTickets();
 ?>
