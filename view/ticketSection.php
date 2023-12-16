@@ -13,8 +13,8 @@
 <body>
     <!-- father -->
     <section id="home_father2" class="h-screen ">
-        <nav class="h-20 bg-pink-500 flex justify-between px-2">
-            <div></div>
+        <nav class="h-20 bg-pink-500 flex justify-between items-center cursor-pointer px-2">
+            <a href="home.php">HOME</a>
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
 

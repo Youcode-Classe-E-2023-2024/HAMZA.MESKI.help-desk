@@ -41,20 +41,16 @@ class CommentsDB {
         }
     }
 
-    public function displayCommentsByTicket($ticket_id) {
+    public function displayComments() {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM comments WHERE ticket_id = :ticket_id");
-    
-            $stmt->bindParam(':ticket_id', $ticket_id, PDO::PARAM_INT);
-    
+            $stmt = $this->pdo->prepare("SELECT * FROM comments");
+        
             // Execute the statement
             $stmt->execute();
-    
-            // Fetch all rows as an associative array
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-            return $result;
-        } catch (PDOException $e) {
+        
+            // Fetch all rows as an object (PDO::FETCH_OBJ)
+            return $stmt->fetchAll(PDO::FETCH_OBJ);
+        }catch (PDOException $e) {
             die('Display failed: ' . $e->getMessage());
         }
     }
@@ -93,8 +89,8 @@ $comments_database = new CommentsDB('localhost', 'desk', 'root', '');
 // // Insert comment
 // $comments_database->insertComment(1, 2, 'This is a comment on the ticket.');
 
-// // Display comments for a ticket
-// $comments = $comments_database->displayCommentsByTicket(2);
+// // Display comments
+// $comments = $comments_database->displayComments();
 // print_r($comments);
 
 // // Update the comment text for the comment with ID 1
