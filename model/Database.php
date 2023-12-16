@@ -25,9 +25,9 @@ class UsersDB {
         }
     }
 
-    public function insertUser($firstname, $lastname, $username, $email, $password, $avatar, $is_admin) {
+    public function insertUser($firstname, $lastname, $username, $email, $password, $avatar, $department_id) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO users (firstname, lastname, username, email, password, avatar, is_admin) VALUES (:firstname, :lastname, :username, :email, :password, :avatar, :is_admin)");
+            $stmt = $this->pdo->prepare("INSERT INTO users (firstname, lastname, username, email, password, avatar, department_id) VALUES (:firstname, :lastname, :username, :email, :password, :avatar, :department_id)");
 
             $stmt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
             $stmt->bindParam(':lastname', $lastname, PDO::PARAM_STR);
@@ -35,7 +35,7 @@ class UsersDB {
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $password, PDO::PARAM_STR);
             $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-            $stmt->bindParam(':is_admin', $is_admin, PDO::PARAM_INT);
+            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
 
             // Execute the statement
             $stmt->execute();
@@ -64,9 +64,9 @@ class UsersDB {
     }
     
 
-    public function updateUser($id, $firstname, $lastname, $username, $email, $password, $avatar, $is_admin) {
+    public function updateUser($id, $firstname, $lastname, $username, $email, $password, $avatar, $department_id) {
         try {
-            $stmt = $this->pdo->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, username = :username, email = :email, password = :password, avatar = :avatar, is_admin = :is_admin WHERE id = :id");
+            $stmt = $this->pdo->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, username = :username, email = :email, password = :password, avatar = :avatar, department_id = :department_id WHERE id = :id");
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
@@ -75,7 +75,7 @@ class UsersDB {
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $password, PDO::PARAM_STR);
             $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-            $stmt->bindParam(':is_admin', $is_admin, PDO::PARAM_INT);
+            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
 
             // Execute the statement
             $stmt->execute();
@@ -104,14 +104,14 @@ $users_database = new UsersDB('localhost', 'desk', 'root', '');
 // $database = new UsersDB('localhost', 'desk', 'root', '');
 
 // // Insert user
-// $database->insertUser('John', 'Doe', 'john_doe', 'john@example.com', 'hashed_password', 'avatar.jpg', 0);
+// $database->insertUser('John', 'Doe', 'john_doe', 'john@example.com', 'hashed_password', 'avatar.jpg', 1);
 
 // // Display users
-// $users = $database->displayUsersByUsernameOrEmail(3,3);
+// $users = $database->displayUsersByUsernameOrEmail('john_doe', 'john@example.com');
 // print_r($users);
 
 // // Update user
-// $database->updateUser(1, 'Updated', 'User', 'updated_user', 'updated@example.com', 'updated_password', 'updated_avatar.jpg', 1);
+// $database->updateUser(1, 'Updated', 'User', 'updated_user', 'updated@example.com', 'updated_password', 'updated_avatar.jpg', 2);
 
 // // Delete user
 // $database->deleteUser(1);
