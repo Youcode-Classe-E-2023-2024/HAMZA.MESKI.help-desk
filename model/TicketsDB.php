@@ -60,17 +60,25 @@ class TicketsDB {
         }
     }
 
-    public function updateTicket($id, $created_by, $assigned_to, $subject, $department_id, $status, $priority) {
+    public function updateTicket($id, $updateParams) {
         try {
-            $stmt = $this->pdo->prepare("UPDATE tickets SET created_by = :created_by, assigned_to = :assigned_to, subject = :subject, department_id = :department_id, status = :status, priority = :priority WHERE id = :id");
+            // Build the SET clause dynamically based on the keys in $updateParams
+            $setClause = '';
+            foreach ($updateParams as $column => $value) {
+                $setClause .= "$column = :$column, ";
+            }
+            $setClause = rtrim($setClause, ', ');  // Remove the trailing comma
 
+            // Prepare the SQL statement
+            $stmt = $this->pdo->prepare("UPDATE tickets SET $setClause WHERE id = :id");
+
+            // Bind parameters in $updateParams
+            foreach ($updateParams as $column => $value) {
+                $stmt->bindParam(":$column", $value);
+            }
+
+            // Bind the ID parameter
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':created_by', $created_by, PDO::PARAM_INT);
-            $stmt->bindParam(':assigned_to', $assigned_to, PDO::PARAM_INT);
-            $stmt->bindParam(':subject', $subject, PDO::PARAM_STR);
-            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
-            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
-            $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
 
             // Execute the statement
             $stmt->execute();
@@ -102,13 +110,16 @@ $ticket_database = new TicketsDB('localhost', 'desk', 'root', '');
 // $tickets = $ticket_database->displayTickets();
 // print_r($tickets);
 
-// // Update ticket
-// $ticket_database->updateTicket(1, 4, 5, 'Updated Ticket', 6, 'Completed', 'Low');
+/*
+// Update only the subject of the ticket with ID 1
+$ticket_database->updateTicket(1, ['subject' => 'Updated Subject']);
+
+// Update both the priority and status of the ticket with ID 2
+$ticket_database->updateTicket(2, ['priority' => 'High', 'status' => 'In Progress']);
+*/
 
 // // Delete ticket
 // $ticket_database->deleteTicket(1);
 
 ?>
 
-Do the samething but this time to handle a departements table, 
-but make sure that departement(str) and this time just add display method, no more

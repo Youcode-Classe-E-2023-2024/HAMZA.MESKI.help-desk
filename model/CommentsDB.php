@@ -59,22 +59,20 @@ class CommentsDB {
         }
     }
 
-    public function updateComment($id, $commenter_id, $ticket_id, $comment) {
+    public function updateCommentText($id, $comment) {
         try {
-            $stmt = $this->pdo->prepare("UPDATE comments SET commenter_id = :commenter_id, ticket_id = :ticket_id, comment = :comment WHERE id = :id");
-
+            $stmt = $this->pdo->prepare("UPDATE comments SET comment = :comment WHERE id = :id");
+    
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':commenter_id', $commenter_id, PDO::PARAM_INT);
-            $stmt->bindParam(':ticket_id', $ticket_id, PDO::PARAM_INT);
             $stmt->bindParam(':comment', $comment, PDO::PARAM_STR);
-
+    
             // Execute the statement
             $stmt->execute();
         } catch (PDOException $e) {
             die('Update failed: ' . $e->getMessage());
         }
     }
-
+    
     public function deleteComment($id) {
         try {
             $stmt = $this->pdo->prepare("DELETE FROM comments WHERE id = :id");
@@ -99,8 +97,8 @@ $comments_database = new CommentsDB('localhost', 'your_db_name', 'your_username'
 // $comments = $comments_database->displayCommentsByTicket(2);
 // print_r($comments);
 
-// // Update comment
-// $comments_database->updateComment(1, 3, 4, 'Updated comment on the ticket.');
+// // Update the comment text for the comment with ID 1
+// $comments_database->updateCommentText(1, 'Updated comment text');
 
 // // Delete comment
 // $comments_database->deleteComment(1);
