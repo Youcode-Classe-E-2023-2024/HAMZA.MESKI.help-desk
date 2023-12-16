@@ -14,7 +14,7 @@
     <section id="home_father" class="h-screen ">
         <nav class="h-20 bg-pink-500 flex justify-between px-2">
             <div></div>
-            <?php require_once '../controller/logger.php' ?>
+            <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
         <section id="home_child1" class="h-[88.6%]">
