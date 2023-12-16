@@ -23,11 +23,6 @@ if (isset($_POST['submit'])) {
                 // set session for access control
                 $_SESSION['user-id'] = $user_record['id'];
 
-                // set session if user is an admin
-                if ($user_record['is_admin'] == 1) {
-                    $_SESSION['user_is_admin'] = true;
-                }
-
                 // log user in
                 header('location: ' . ROOT_URL . 'view/home.php');
             } else {

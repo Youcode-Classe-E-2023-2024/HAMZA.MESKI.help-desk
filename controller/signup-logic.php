@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
                 }
 
                 // Insert new user into users table using UsersDB class
-                $users_database->insertUser($firstname, $lastname, $username, $email, $hashed_password, $avatar_name, 0);
+                $users_database->insertUser($firstname, $lastname, $username, $email, $hashed_password, $avatar_name);
 
                 // Redirect to login page with success message
                 $_SESSION['signup-success'] = "Registration successful. Please log in.";

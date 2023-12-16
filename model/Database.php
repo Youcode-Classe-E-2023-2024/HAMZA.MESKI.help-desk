@@ -25,18 +25,17 @@ class UsersDB {
         }
     }
 
-    public function insertUser($firstname, $lastname, $username, $email, $password, $avatar, $department_id) {
+    public function insertUser($firstname, $lastname, $username, $email, $password, $avatar) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO users (firstname, lastname, username, email, password, avatar, department_id) VALUES (:firstname, :lastname, :username, :email, :password, :avatar, :department_id)");
-
+            $stmt = $this->pdo->prepare("INSERT INTO users (firstname, lastname, username, email, password, avatar) VALUES (:firstname, :lastname, :username, :email, :password, :avatar)");
+    
             $stmt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
             $stmt->bindParam(':lastname', $lastname, PDO::PARAM_STR);
             $stmt->bindParam(':username', $username, PDO::PARAM_STR);
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $password, PDO::PARAM_STR);
             $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
-
+    
             // Execute the statement
             $stmt->execute();
         } catch (PDOException $e) {
@@ -62,40 +61,7 @@ class UsersDB {
             die('Display failed: ' . $e->getMessage());
         }
     }
-    
 
-    public function updateUser($id, $firstname, $lastname, $username, $email, $password, $avatar, $department_id) {
-        try {
-            $stmt = $this->pdo->prepare("UPDATE users SET firstname = :firstname, lastname = :lastname, username = :username, email = :email, password = :password, avatar = :avatar, department_id = :department_id WHERE id = :id");
-
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':firstname', $firstname, PDO::PARAM_STR);
-            $stmt->bindParam(':lastname', $lastname, PDO::PARAM_STR);
-            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-            $stmt->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
-
-            // Execute the statement
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die('Update failed: ' . $e->getMessage());
-        }
-    }
-
-    public function deleteUser($id) {
-        try {
-            $stmt = $this->pdo->prepare("DELETE FROM users WHERE id = :id");
-
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-            // Execute the statement
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die('Delete failed: ' . $e->getMessage());
-        }
-    }
 }
 // tables
 $users_database = new UsersDB('localhost', 'desk', 'root', '');
