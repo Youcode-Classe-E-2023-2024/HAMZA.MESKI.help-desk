@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <title>HELP DESK</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include DataTables CSS and JS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
 <body>
     <!-- father -->
@@ -17,7 +22,7 @@
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
-        <section id="home_child1" class="h-[88.6%]">
+        <section id="home_child1" class="HIDDEN h-[88.6%]">
             <section id="home_child1_son" class=" w-full h-full bg-green-400 grid grid-cols-5">
                 <main id="open_section" class=" h-full flex items-center HIDDEN">
                     <ion-icon name="chevron-forward-outline" id="open_icon" class="text-3xl cursor-pointer"></ion-icon>
@@ -37,8 +42,20 @@
             </section>
         </section>
         <!-- child2 -->
-        <section id="home_child2" class="HIDDEN w-full h-[88.6%] bg-red-400">
-           
+        <section id="home_child2" class=" w-full h-[88.6%] bg-red-400">
+            <table id="DataTable" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Created By</th>
+                        <th>Subject</th>
+                        <th>Department ID</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+                <!-- Table body will be populated dynamically using DataTables -->
+            </table>
         </section>
     </section>
     <!-- tailwind CDN -->
@@ -48,5 +65,6 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- local scripts -->
     <script src="scripts/switchingPages.js"></script>
+    <script src="scripts/DataTable.js"></script>
 </body>
 </html>
