@@ -35,9 +35,9 @@
                 </form> 
             </section>
             <!-- comment input -->
-            <section>
+            <section class="col-span-2 overflow-auto">
                 <div id="child1">
-                    <section id="comments_parent" class="col-span-2 h-full overflow-auto">
+                    <section id="comments_parent" class="h-full">
                         
                     </section>
                 </div>
