@@ -33,7 +33,7 @@
             foreach ($this->comments as $comment) {
                 foreach($this->users as $user) {
                     if($comment->commenter_id == $user->id) {
-                        if($comment->commenter_id == $_SESSION['user-id'] && $comment->ticket_id == $_SESSION['current_ticket'] ) {
+                        if($comment->commenter_id == $this->currentUserId && $comment->ticket_id == $this->currentTicketId) {
                             $html .= <<<NOWDOC
                                 <main class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
                                     <footer class="flex justify-between items-center mb-2">
@@ -56,7 +56,7 @@
                                     </p>
                                 </main>
                             NOWDOC;
-                        }elseif ($comment->ticket_id == $_SESSION['current_ticket'] ) {
+                        }elseif ($comment->ticket_id == $this->currentTicketId) {
                             $html .= <<<NOWDOC
                             <main class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
                                 <footer class="flex justify-between items-center mb-2">
