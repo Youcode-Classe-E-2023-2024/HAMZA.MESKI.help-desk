@@ -31,9 +31,9 @@
                     <ion-icon name="chevron-back-outline" id="close_icon" class="text-3xl cursor-pointer"></ion-icon>
                 </main>
                 <!-- All the tickets will appear here -->
-                <form action="ticketSection.php" method="post" id="tickets_container" class="w-full col-span-4 grid grid-cols-3 p-3 gap-x-3 gap-y-6 overflow-auto">
+                <main id="tickets_container" class="w-full col-span-4 grid grid-cols-3 p-3 gap-x-3 gap-y-6 overflow-auto">
                     <?php require_once '../controller/TicketContainer.php' ?>
-                </form>
+                </main>
             </section>
         </section>
         <!-- child2 -->

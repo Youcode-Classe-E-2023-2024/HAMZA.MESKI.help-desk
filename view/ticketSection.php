@@ -23,6 +23,19 @@
             <section class="w-full col-span-3 flex items-center px-12 bg-green-400">
                 <?php require_once '../controller/TicketSection.php' ?>
             </section>
+            <!-- comment input -->
+            <form id="commentForm">
+                <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    <label class="sr-only text-black">Your comment</label>
+                    <textarea id="commentInput" name="comment" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a comment..." required>
+                        </textarea>
+                </div>
+                <input type="hidden" name="article_id" value="<?php echo $_POST['ticketId'] ?>">
+                <input type="hidden" name="commenter_id" value="<?php echo $_SESSION['user-id'] ?>">
+                <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center bg-blue-600 ">
+                    Post comment
+                </button>
+            </form> 
             <section id="commentSection" class="col-span-2 h-full ">
 
             </section>
