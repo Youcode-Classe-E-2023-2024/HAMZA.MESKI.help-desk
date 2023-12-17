@@ -66,7 +66,7 @@ delete_comment_form.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('Delete');
     const formData = new FormData();
-    formData.append('commentId', localStorage.getItem('commentId'))
+    formData.append('commentId', Number(localStorage.getItem('commentId')));
     fetch('../controller/commentsController/DeleteComments.php', {
         method: 'POST', 
         body: formData
@@ -86,7 +86,7 @@ update_comment_form.addEventListener('submit', function(event) {
     event.preventDefault();
     console.log('update comment');
     const formData = new FormData(this);
-    formData.append('commentId', localStorage.getItem('commentId'));
+    formData.append('commentId', Number(localStorage.getItem('commentId')));
     fetch('../controller/commentsController/UpdateComments.php', {
         method: 'POST', 
         body: formData
