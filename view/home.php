@@ -32,6 +32,7 @@
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">✔ My Tasks</div>
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">🦾 I created</div>
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">👽 All</div>
+                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">⏳ Priority</div>
                     </div>
                     <ion-icon name="chevron-back-outline" id="close_icon" class="text-3xl cursor-pointer"></ion-icon>
                 </main>
@@ -52,6 +53,7 @@
                         <th>Department ID</th>
                         <th>Status</th>
                         <th>Priority</th>
+                        <th>handle</th>
                     </tr>
                 </thead>
                 <!-- Table body will be populated dynamically using DataTables -->

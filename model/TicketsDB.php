@@ -59,6 +59,22 @@ class TicketsDB {
         }
     }
 
+    public function displayTicketsAsJSON() {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM tickets");
+    
+            // Execute the statement
+            $stmt->execute();
+    
+            // Fetch all rows as an associative array
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $result;
+        } catch (PDOException $e) {
+            die('Display failed: ' . $e->getMessage());
+        }
+    }
+
     public function updateTicket($id, $updateParams) {
         try {
             // Build the SET clause dynamically based on the keys in $updateParams
