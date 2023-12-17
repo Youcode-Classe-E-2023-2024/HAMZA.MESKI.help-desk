@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once '../model/CommentsDB.php';
-    require_once '../model/UsersDB.php';
+    require_once '../../model/CommentsDB.php';
+    require_once '../../model/UsersDB.php';
 
     $commenter_id = filter_input(INPUT_POST, 'commenter_id', FILTER_SANITIZE_SPECIAL_CHARS);
     $ticket_id = filter_input(INPUT_POST, 'ticket_id', FILTER_SANITIZE_SPECIAL_CHARS);

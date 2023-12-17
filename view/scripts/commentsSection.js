@@ -17,7 +17,7 @@ console.log(commentForm);
 // Function to update comments and add event listeners
 function updateComments() {
     const formData = new FormData(); 
-    fetch('../controller/DisplayComments.php', {
+    fetch('../controller/commentsController/DisplayComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -43,7 +43,7 @@ updateComments();
 commentForm.addEventListener('submit', function(event) {
     event.preventDefault(); 
     const formData = new FormData(commentForm); 
-    fetch('../controller/DisplayComments.php', {
+    fetch('../controller/commentsController/DisplayComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -67,7 +67,7 @@ delete_comment_form.addEventListener('submit', function(event) {
     console.log('Delete');
     const formData = new FormData();
     formData.append('commentId', localStorage.getItem('commentId'))
-    fetch('../controller/DeleteComments.php', {
+    fetch('../controller/commentsController/DeleteComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -87,7 +87,7 @@ update_comment_form.addEventListener('submit', function(event) {
     console.log('update comment');
     const formData = new FormData(this);
     formData.append('commentId', localStorage.getItem('commentId'));
-    fetch('../controller/UpdateComments.php', {
+    fetch('../controller/commentsController/UpdateComments.php', {
         method: 'POST', 
         body: formData
     })
