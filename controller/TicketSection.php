@@ -1,5 +1,5 @@
 <?php
-    
+    $_SESSION['current_ticket'] = $_POST['ticketId'];
     print <<<HEREDOC
     <article name="ticketId" value="{$_POST['ticketId']}" class="w-[80%] bg-white shadow-md p-6 rounded-lg h-[296px] cursor-pointer text-left">
         <div class="mb-4">

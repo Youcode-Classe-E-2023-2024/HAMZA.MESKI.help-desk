@@ -6,29 +6,18 @@ if(commentInput) {
     emptyComment();
 }
 
-const comments_section = document.getElementById('comments_section');
 const comments_parent = document.getElementById('comments_parent'); 
 const commentForm = document.getElementById('commentForm'); 
 const child1 = document.getElementById('child1'); 
 const child2 = document.getElementById('child2');
 
-console.log(comments_section);
 console.log(comments_parent);
 console.log(commentForm);
-
-function scrollToElement(element) {
-    if (element) {
-        element.scrollIntoView({ block: 'start' });
-    } else {
-        console.warn(`Element "${element}" not found.`);
-    }
-}
 
 // Function to update comments and add event listeners
 function updateComments() {
     const formData = new FormData(); 
-    formData.append('oneTwo', comments_parent.getAttribute('key'));
-    fetch('../config/insertComment.php', {
+    fetch('../controller/DisplayComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -45,7 +34,6 @@ function updateComments() {
     
                 child1.classList.toggle('HIDDEN');
                 child2.classList.toggle('HIDDEN');
-                scrollToElement(comments_section);
             })
         }
     })
@@ -55,7 +43,7 @@ updateComments();
 commentForm.addEventListener('submit', function(event) {
     event.preventDefault(); 
     const formData = new FormData(commentForm); 
-    fetch('../config/insertComment.php', {
+    fetch('../controller/DisplayComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -70,7 +58,6 @@ const close_comment_section = document.getElementById('close_comment_section');
 close_comment_section.addEventListener('click', function() {
     child1.classList.toggle('HIDDEN');
     child2.classList.toggle('HIDDEN');
-    scrollToElement(comments_section);
 })
 
 // delete comment logic:
@@ -80,7 +67,7 @@ delete_comment_form.addEventListener('submit', function(event) {
     console.log('Delete');
     const formData = new FormData();
     formData.append('commentId', localStorage.getItem('commentId'))
-    fetch('../config/deleteComment.php', {
+    fetch('../controller/DeleteComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -89,7 +76,6 @@ delete_comment_form.addEventListener('submit', function(event) {
         updateComments(); // Call the common function
         child1.classList.toggle('HIDDEN');
         child2.classList.toggle('HIDDEN');
-        scrollToElement(comments_section);
     });
 
 });
@@ -101,7 +87,7 @@ update_comment_form.addEventListener('submit', function(event) {
     console.log('update comment');
     const formData = new FormData(this);
     formData.append('commentId', localStorage.getItem('commentId'));
-    fetch('../config/updateComment.php', {
+    fetch('../controller/UpdateComments.php', {
         method: 'POST', 
         body: formData
     })
@@ -110,6 +96,5 @@ update_comment_form.addEventListener('submit', function(event) {
         updateComments(); // Call the common function
         child1.classList.toggle('HIDDEN');
         child2.classList.toggle('HIDDEN');
-        scrollToElement(comments_section);
     });
 });
