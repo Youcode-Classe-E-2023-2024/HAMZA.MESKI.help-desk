@@ -27,17 +27,17 @@
             <form id="commentForm">
                 <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
                     <label class="sr-only text-black">Your comment</label>
-                    <textarea id="commentInput" name="comment" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a comment..." required>
-                        </textarea>
+                    <textarea id="commentInput" name="comment" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800" placeholder="Write a comment..." required></textarea>
                 </div>
-                <input type="hidden" name="article_id" value="<?php echo $_POST['ticketId'] ?>">
+                <input type="hidden" name="ticket_id" value="<?php echo $_POST['ticketId'] ?>">
                 <input type="hidden" name="commenter_id" value="<?php echo $_SESSION['user-id'] ?>">
+                <input type="hidden" name="department_id" value="<?php echo $_POST['department_id'] ?>">
                 <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center bg-blue-600 ">
                     Post comment
                 </button>
             </form> 
-            <section id="commentSection" class="col-span-2 h-full ">
-
+            <section id="commentSection" class="col-span-2 h-full overflow-auto">
+                
             </section>
         </main>
 
@@ -54,5 +54,6 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- local scripts -->
     <script src="scripts/switchingPages.js"></script>
+    <script src="scripts/commentsSection.js"></script>
 </body>
 </html>

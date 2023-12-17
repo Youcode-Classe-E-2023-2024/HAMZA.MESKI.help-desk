@@ -38,6 +38,7 @@
                     <input type="hidden" name="ticketId" value="$ticket->id">
                     <input type="hidden" name="ticketSubject" value="$ticket->subject">
                     <input type="hidden" name="department" value="$department->departement">
+                    <input type="hidden" name="department_id" value="$department->id">
                     <input type="hidden" name="ticketStatus" value="$ticket->status">
                     <input type="hidden" name="createdBy" value="$ticket->created_by">
                     <input type="hidden" name="createdAssignedTo" value="$ticket->assigned_to">

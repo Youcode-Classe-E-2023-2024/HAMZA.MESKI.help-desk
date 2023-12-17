@@ -1,9 +1,5 @@
 <?php
-    require_once '../model/TicketsDB.php';
-    require_once '../model/DepartementsDB.php';
-    $tickets = $tickets_database->displayTickets();
-    $departments = $departments_database->displayDepartments();
-
+    
     print <<<HEREDOC
     <article name="ticketId" value="{$_POST['ticketId']}" class="w-[80%] bg-white shadow-md p-6 rounded-lg h-[296px] cursor-pointer text-left">
         <div class="mb-4">

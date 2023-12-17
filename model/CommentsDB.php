@@ -43,7 +43,7 @@ class CommentsDB {
 
     public function displayComments() {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM comments");
+            $stmt = $this->pdo->prepare("SELECT * FROM comments ORDER BY id DESC");
         
             // Execute the statement
             $stmt->execute();
