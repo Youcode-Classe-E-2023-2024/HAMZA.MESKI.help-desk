@@ -59,15 +59,14 @@ class TicketsDB {
         }
     }
 
-    public function displayTicketsAsJSON() {
+    public function displayTicketsAsJSON($userId) {
         try {
-            $stmt = $this->pdo->prepare("SELECT * FROM tickets");
-    
-            // Execute the statement
+            $sql = "SELECT * FROM tickets WHERE assigned_to = :userId";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
             $stmt->execute();
-    
-            // Fetch all rows as an associative array
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // Fetch the row as an associative array
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
             return $result;
         } catch (PDOException $e) {

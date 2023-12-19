@@ -43,21 +43,9 @@
             </section>
         </section>
         <!-- child2 -->
-        <section id="home_child2" class=" w-full h-[88.6%] bg-red-400">
-            <table id="DataTable" class="display">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Created By</th>
-                        <th>Subject</th>
-                        <th>Department ID</th>
-                        <th>Status</th>
-                        <th>Priority</th>
-                        <th>handle</th>
-                    </tr>
-                </thead>
-                <!-- Table body will be populated dynamically using DataTables -->
-            </table>
+        <div id="userId" userId = "<?php echo $_SESSION['user-id'] ?>"></div>
+        <section id="home_child2" class=" w-full h-[88.6%] bg-red-400 container mx-auto p-6 rounded-lg shadow">
+
         </section>
     </section>
     <!-- tailwind CDN -->
