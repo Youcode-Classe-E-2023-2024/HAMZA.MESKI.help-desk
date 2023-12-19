@@ -17,7 +17,7 @@ foreach ($tickets as $ticket) {
         $subjectData[$subject] = [
             'ticket_id' => $ticket->id,
             'created_by' => $ticket->created_by,
-            'assigned_to' => [$ticket->assigned_to],
+            'assigned_to' => [$users_database->displayUserById($ticket->assigned_to)->username],
             'subject' => $subject,
             'department' => $ticket->department,
             'status' => $ticket->status,
@@ -25,7 +25,7 @@ foreach ($tickets as $ticket) {
         ];
     } else {
         // Update data for this subject if already set
-        $subjectData[$subject]['assigned_to'][] = $ticket->assigned_to;
+        $subjectData[$subject]['assigned_to'][] =  $users_database->displayUserById($ticket->assigned_to)->username;
         // $subjectData[$subject]['department'][] = $ticket->department;
     }
 }
@@ -36,15 +36,21 @@ foreach ($subjectData as $subject => $data) {
     $sum_assigned_to = implode(' ', $data['assigned_to']);
     $data['assigned_to'] = $sum_assigned_to;
 
+    #
     $createdBy = $users_database->displayUserById($data['created_by'])->username;
+    $department = str_replace('&', ' - ', $data['department']);
+    $department[strlen($department) - 2] = ' ';
 
+    #
+    $assignedTo = 1;
     $html .= <<<HEREDOC
         <form action="ticketSection.php" method="post" class="TICKET bg-white shadow-md rounded-lg h-[296px] cursor-pointer text-left">
             <input type="hidden" name="ticketId" value="{$data['ticket_id']}">
             <input type="hidden" name="ticketSubject" value="{$data['subject']}">
-            <input type="hidden" name="department" value="{$data['department']}">
+            <input type="hidden" name="department" value="$department">
             <input type="hidden" name="ticketStatus" value="{$data['status']}">
-            <input type="hidden" name="createdBy" value="{$data['created_by']}">
+            <input type="hidden" name="createdBy" value="$createdBy">
+            <input type="hidden" name="assignedTo" value="$assignedTo">
             <input type="hidden" name="createdAssignedTo" value="{$data['assigned_to']}">
             <button type="submit" class="text-left p-6 w-full h-full">
                 <div class="mb-4">
@@ -54,7 +60,7 @@ foreach ($subjectData as $subject => $data) {
                     <strong class="text-gray-700">Subject:</strong> {$data['subject']}
                 </div>
                 <div class="mb-4">
-                    <strong class="text-gray-700">Department:</strong> {$data['department']}
+                    <strong class="text-gray-700">Department:</strong> $department
                 </div>
                 <div class="mb-4">
                     <strong class="text-gray-700">Status:</strong> {$data['status']}
