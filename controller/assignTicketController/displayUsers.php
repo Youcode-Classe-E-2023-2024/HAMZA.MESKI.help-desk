@@ -4,7 +4,7 @@
 
     foreach ($users as $user) {
         echo '<label>';
-        echo '<input type="checkbox" name="selected_users[]" value="' . $user->username . '">';
+        echo '<input type="checkbox" name="selected_users[]" value="' . $user->id . '">';
         echo $user->username . '<br>';
         echo '</label>';
     }

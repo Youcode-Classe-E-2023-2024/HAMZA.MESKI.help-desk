@@ -53,7 +53,7 @@
                     <!-- 3.input subject -->
                     <div class="flex flex-col mb-3">
                         <label for="message">Subject</label>
-                        <textarea name="subject" rows="4" id="message" class="px-3 py-2 bg-gray-800 border border-gray-900 focus:border-red-500 focus:outline-none focus:bg-gray-800 focus:text-red-500"></textarea>
+                        <textarea name="subject" rows="4" id="message" class="px-3 py-2 bg-gray-800 border border-gray-900 focus:border-red-500 focus:outline-none focus:bg-gray-800 focus:text-red-500" required></textarea>
                     </div>
                     <div class="flex flex-col mb-3">
                         Status

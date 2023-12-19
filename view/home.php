@@ -22,7 +22,7 @@
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
-        <section id="home_child1" class="HIDDEN h-[88.6%]">
+        <section id="home_child1" class=" h-[88.6%]">
             <section id="home_child1_son" class=" w-full h-full bg-green-400 grid grid-cols-5">
                 <main id="open_section" class=" h-full flex items-center HIDDEN">
                     <ion-icon name="chevron-forward-outline" id="open_icon" class="text-3xl cursor-pointer"></ion-icon>
