@@ -25,14 +25,14 @@ class TicketsDB {
         }
     }
 
-    public function insertTicket($created_by, $assigned_to, $subject, $department_id, $status, $priority) {
+    public function insertTicket($created_by, $assigned_to, $subject, $department, $status, $priority) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO tickets (created_by, assigned_to, subject, department_id, status, priority) VALUES (:created_by, :assigned_to, :subject, :department_id, :status, :priority)");
+            $stmt = $this->pdo->prepare("INSERT INTO tickets (created_by, assigned_to, subject, department, status, priority) VALUES (:created_by, :assigned_to, :subject, :department, :status, :priority)");
 
             $stmt->bindParam(':created_by', $created_by, PDO::PARAM_INT);
             $stmt->bindParam(':assigned_to', $assigned_to, PDO::PARAM_INT);
             $stmt->bindParam(':subject', $subject, PDO::PARAM_STR);
-            $stmt->bindParam(':department_id', $department_id, PDO::PARAM_INT);
+            $stmt->bindParam(':department', $department, PDO::PARAM_STR);
             $stmt->bindParam(':status', $status, PDO::PARAM_STR);
             $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
 
@@ -63,7 +63,7 @@ class TicketsDB {
         try {
             $sql = "SELECT * FROM tickets WHERE assigned_to = :userId";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
             $stmt->execute();
             // Fetch the row as an associative array
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -92,7 +92,7 @@ class TicketsDB {
             }
 
             // Bind the ID parameter
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
 
             // Execute the statement
             $stmt->execute();
@@ -105,7 +105,7 @@ class TicketsDB {
         try {
             $stmt = $this->pdo->prepare("DELETE FROM tickets WHERE id = :id");
 
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':id', $id, PDO::PARAM_STR);
 
             // Execute the statement
             $stmt->execute();
@@ -118,7 +118,7 @@ class TicketsDB {
 $tickets_database = new TicketsDB('localhost', 'desk', 'root', '');
 
 // // Insert ticket
-// $ticket_database->insertTicket(1, 2, 'Ticket Example', 3, 'In Progress', 'High');
+// $ticket_database->insertTicket(1, 2, 'Ticket Example', '3', 'In Progress', 'High');
 
 // // Display tickets
 // $tickets = $ticket_database->displayTickets();
@@ -134,6 +134,4 @@ $ticket_database->updateTicket(2, ['priority' => 'High', 'status' => 'In Progres
 
 // // Delete ticket
 // $ticket_database->deleteTicket(1);
-
 ?>
-

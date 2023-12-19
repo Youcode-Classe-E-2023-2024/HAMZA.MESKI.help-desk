@@ -16,7 +16,7 @@
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-800 h-32 w-full"></div>
 
         <!-- Assingment form -->
-        <form action="../controller/assignTicketController/test.php" method="post" class="relative p-5 lg:px-20 flex flex-col md:flex-row items-center justify-center">
+        <form action="../controller/assignTicketController/assignTicket.php" method="post" class="relative p-5 lg:px-20 flex flex-col md:flex-row items-center justify-center">
             <main class="flex justify-between w-full">
                 <div class="w-full md:w-1/2 p-5 md:px-0 mx-5">
                     <div class="bg-gray-900 border border-red-500 w-full h-full p-5 pt-8">
