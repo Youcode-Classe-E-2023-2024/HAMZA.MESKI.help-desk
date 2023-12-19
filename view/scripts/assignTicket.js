@@ -1,5 +1,13 @@
+const assignForm = document.getElementById('assignForm');
 
-
-fetch('../controller/assignTicketController/test.php')
-.then(response=>response.text())
-.then(data=>console.log(data));
+assignForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this); 
+    
+    fetch('../controller/assignTicketController/assignTicket.php', {
+        method: 'POST', 
+        body: formData
+    })
+    .then(response=>response.text())
+    .then(()=>alert('Assigned Successfully!'));
+})

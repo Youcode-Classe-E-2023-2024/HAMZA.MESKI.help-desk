@@ -29,10 +29,10 @@
                 </main>
                 <main id="close_section" class=" col-span-1 bg-white flex items-center justify-end gap-2 px-2">
                     <div class="text-2xl flex flex-col gap-3 flex-grow">
-                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">✔ My Tasks</div>
-                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">🦾 I created</div>
-                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">👽 All</div>
-                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer">⏳ Priority</div>
+                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="myTasks">✔ My Tasks</div>
+                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="iCreated">🦾 I created</div>
+                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="all">👽 All</div>
+                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="priority">⏳ Priority</div>
                     </div>
                     <ion-icon name="chevron-back-outline" id="close_icon" class="text-3xl cursor-pointer"></ion-icon>
                 </main>
@@ -62,5 +62,6 @@
     <!-- local scripts -->
     <script src="scripts/switchingPages.js"></script>
     <script src="scripts/DataTable.js"></script>
+    <script src="scripts/filter.js"></script>
 </body>
 </html>

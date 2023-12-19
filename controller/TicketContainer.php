@@ -1,5 +1,6 @@
 <?php
 require_once '../model/TicketsDB.php';
+require_once '../model/UsersDB.php';
 
 $tickets = $tickets_database->displayTickets();
 
@@ -35,12 +36,10 @@ foreach ($subjectData as $subject => $data) {
     $sum_assigned_to = implode(' ', $data['assigned_to']);
     $data['assigned_to'] = $sum_assigned_to;
 
-    // Sum of department
-    // $sum_department = implode(' ', $data['department']);
-    // $data['department'] = $sum_department;
+    $createdBy = $users_database->displayUserById($data['created_by'])->username;
 
     $html .= <<<HEREDOC
-        <form action="ticketSection.php" method="post" class="bg-white shadow-md rounded-lg h-[296px] cursor-pointer text-left">
+        <form action="ticketSection.php" method="post" class="TICKET bg-white shadow-md rounded-lg h-[296px] cursor-pointer text-left">
             <input type="hidden" name="ticketId" value="{$data['ticket_id']}">
             <input type="hidden" name="ticketSubject" value="{$data['subject']}">
             <input type="hidden" name="department" value="{$data['department']}">
@@ -61,10 +60,11 @@ foreach ($subjectData as $subject => $data) {
                     <strong class="text-gray-700">Status:</strong> {$data['status']}
                 </div>
                 <div class="mb-4">
-                    <strong class="text-gray-700">Created by:</strong> {$data['created_by']}
+                    <strong class="text-gray-700" CREATED_BY="{$data['created_by']}">Created by:</strong>$createdBy
                 </div>
+                <div ASSIGNED_TO="{$data['assigned_to']}"></div>
                 <div>
-                    <strong class="text-gray-700">Assigned to:</strong> {$data['assigned_to']}
+                    <strong class="text-gray-700">Assigned to:</strong> {$data['priority']}
                 </div>
             </button>
         </form>

@@ -78,6 +78,23 @@ class UsersDB {
         }
     }
 
+    public function displayUserById($userId) {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :userId");
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+    
+            // Execute the statement
+            $stmt->execute();
+    
+            // Fetch the user as an associative array
+            $user = $stmt->fetch(PDO::FETCH_OBJ);
+    
+            return $user;
+        } catch (PDOException $e) {
+            die('Display failed: ' . $e->getMessage());
+        }
+    }
+    
 }
 
 $users_database = new UsersDB('localhost', 'desk', 'root', '');
