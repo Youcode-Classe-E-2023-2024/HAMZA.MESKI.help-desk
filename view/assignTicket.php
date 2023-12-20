@@ -24,8 +24,8 @@
                         <h3 class="text-2xl font-semibold mb-5">
                             Select Users
                         </h3>
-                        <input type="text" id="searchUsers" class="mb-2"><br>
-                        <section class="h-40 overflow-auto">
+                        <input type="text" id="searchUsers" placeholder="Search users" class="mb-2"><br>
+                        <section id="userList" class="h-40 overflow-auto">
                             <!-- 1.input as check-box for users -->
                             <?php require '../controller/assignTicketController/displayUsers.php' ?>
                         </section>
@@ -38,7 +38,7 @@
                             Select Departments
                         </h3>
                         <input type="text" id="searchDepartments" class="mb-2"><br>
-                        <section class="h-40 overflow-auto">
+                        <section id="departmentList" class="h-40 overflow-auto">
                             <!-- 2.input as check-box for departments -->
                             <?php require '../controller/assignTicketController/displayDepartments.php' ?>
                         </section>
@@ -87,5 +87,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- scripts -->
     <script src="scripts/assignTicket.js"></script>
+    <script src="scripts/search.js"></script>
 </body>
 </html>

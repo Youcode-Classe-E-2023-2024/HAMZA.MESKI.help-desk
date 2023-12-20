@@ -25,7 +25,7 @@ session_start();
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
-        <section id="home_child1" class="HIDDEN h-[88.6%]">
+        <section id="home_child1" class=" h-[88.6%]">
             <section id="home_child1_son" class=" w-full h-full bg-green-400 grid grid-cols-5">
                 <main id="open_section" class=" h-full flex items-center HIDDEN">
                     <ion-icon name="chevron-forward-outline" id="open_icon" class="text-3xl cursor-pointer"></ion-icon>
@@ -47,7 +47,7 @@ session_start();
         </section>
         <!-- child2 -->
         <div id="userId" userId="<?php echo $_SESSION['user-id'] ?>"></div>
-        <section id="home_child2" class=" w-full h-[88.6%] bg-red-400 container mx-auto p-6 rounded-lg shadow">
+        <section id="home_child2" class="HIDDEN w-full h-[88.6%] container mx-auto p-6 rounded-lg shadow">
             <main class="flex justify-between">
                 <div></div>
                 <div class="flex gap-1">
