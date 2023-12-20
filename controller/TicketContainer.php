@@ -43,15 +43,15 @@ class TicketRenderer
         foreach ($subjectData as $subject => $data) {
             $sum_assigned_to = implode(' - ', $data['assigned_to']);
             $data['assigned_to'] = $sum_assigned_to;
-
+        
             $createdBy = $this->usersDB->displayUserById($data['created_by'])->username;
             $department = str_replace('&', ' - ', $data['department']);
             $department[strlen($department) - 2] = ' ';
-
+        
             $assignedTo = 1;
-
+        
             $html .= <<<HEREDOC
-                <form action="ticketSection.php" method="post" class="TICKET bg-white shadow-md rounded-lg h-[296px] cursor-pointer text-left">
+                <form action="ticketSection.php" method="post" createdByID="{$data['created_by']}" assignedToID="{$data['assigned_to']}" class="TICKET bg-white shadow-md rounded-lg h-[296px] cursor-pointer text-left">
                     <input type="hidden" name="ticketId" value="{$data['ticket_id']}">
                     <input type="hidden" name="ticketSubject" value="{$data['subject']}">
                     <input type="hidden" name="department" value="$department">
@@ -83,8 +83,9 @@ class TicketRenderer
                 </form>
             HEREDOC;
         }
-
+        
         print $html;
+        
     }
 }
 

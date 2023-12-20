@@ -39,3 +39,24 @@ function extractPriority(text) {
     const priorityMatches = text.match(/priority:\s*([a-z-]+)/i);
     return priorityMatches ? priorityMatches[1].toLowerCase() : '';
 }
+
+/* I created Filter */
+const currentLogger = document.getElementById('USERID').getAttribute('value');
+console.log(currentLogger);
+console.log(elementsArray);
+
+iCreaetd.addEventListener('click', function() {
+    for (const ele of elementsArray) {
+        if (ele.getAttribute('createdbyid') !== currentLogger) {
+            ele.classList.toggle('HIDDEN');
+        }
+    }
+})
+
+all.addEventListener('click', function() {
+    for (const ele of elementsArray) {
+        if (ele.classList.contains('HIDDEN')) {
+            ele.classList.remove('HIDDEN');
+        }
+    }
+})

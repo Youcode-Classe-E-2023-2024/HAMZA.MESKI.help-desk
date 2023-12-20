@@ -32,7 +32,6 @@ session_start();
                 </main>
                 <main id="close_section" class=" col-span-1 bg-white flex items-center justify-end gap-2 px-2">
                     <div class="text-2xl flex flex-col gap-3 flex-grow">
-                        <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="myTasks">✔ My Tasks</div>
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="iCreated">🦾 I created</div>
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="all">👽 All</div>
                         <div class="border border-black rounded-md px-3 py-2 hover:bg-black hover:text-white transition-all duration-500 text-center cursor-pointer" id="priority">⏳ Priority</div>
