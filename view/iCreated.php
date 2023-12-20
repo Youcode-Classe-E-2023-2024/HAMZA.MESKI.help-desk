@@ -17,6 +17,7 @@
 
 <body>
     <div id="USERID" value=<?php print $_SESSION['user-id']; ?>></div>
+    <a href="home.php">back</a>
     <section>
         <table id="iCreatedTable" class="display" style="width:100%">
             <thead>

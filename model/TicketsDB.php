@@ -116,6 +116,31 @@ class TicketsDB {
         }
     }
 
+    public function updateTicketById($id, $departments, $status, $priority)
+    {
+        try {
+            $query = "UPDATE tickets SET department = :department, status = :status, priority = :priority WHERE id = :id";
+            $stmt = $this->pdo->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':department', $departments, PDO::PARAM_STR);
+            $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+            $stmt->bindParam(':priority', $priority, PDO::PARAM_STR);
+
+            // Execute the query
+            $stmt->execute();
+
+            // You can check if the update was successful or handle errors accordingly
+            if ($stmt->rowCount() > 0) {
+                return true; // Update successful
+            } else {
+                return false; // Update failed
+            }
+        } catch (PDOException $e) {
+            die('Update failed: ' . $e->getMessage());
+        }
+    }
+
     public function deleteTicket($id) {
         try {
             $stmt = $this->pdo->prepare("DELETE FROM tickets WHERE id = :id");
@@ -133,18 +158,18 @@ class TicketsDB {
 $tickets_database = new TicketsDB('localhost', 'desk', 'root', '');
 
 // // Insert ticket
-// $ticket_database->insertTicket(1, 2, 'Ticket Example', '3', 'In Progress', 'High');
+// $tickets_database->insertTicket(1, 2, 'Ticket Example', '3', 'In Progress', 'High');
 
 // // Display tickets
-// $tickets = $ticket_database->displayTickets();
+// $tickets = $tickets_database->displayTickets();
 // print_r($tickets);
 
 /*
 // Update only the subject of the ticket with ID 1
-$ticket_database->updateTicket(1, ['subject' => 'Updated Subject']);
+$tickets_database->updateTicket(1, ['subject' => 'Updated Subject']);
 
 // Update both the priority and status of the ticket with ID 2
-$ticket_database->updateTicket(2, ['priority' => 'High', 'status' => 'In Progress']);
+$tickets_database->updateTicket(2, ['priority' => 'High', 'status' => 'In Progress']);
 */
 
 // // Delete ticket

@@ -23,7 +23,7 @@ $(document).ready(function() {
                     return '<section class="flex gap-2">'+
                                 '<form action="updateMyTicketEdit.php" method="post">' +
                                     '<button name="btn" class="text-blue-500 hover:underline mr-2">Edite</button>' +
-                                    '<input name="task_id" type="hidden" value="' + data + '">' +
+                                    '<input name="ticket_id" type="hidden" value="' + data + '">' +
                                 '</form>' +
                                 '<button class="delete_btn text-red-500 hover:underline focus:outline-none focus:ring focus:border-red-300" data-id="' + data + '">Delete</button>'+
                             '</section>';

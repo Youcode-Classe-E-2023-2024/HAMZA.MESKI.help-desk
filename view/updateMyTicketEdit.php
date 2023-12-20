@@ -18,6 +18,7 @@
         <!-- Assingment form -->
         <!-- action="../controller/assignTicketController/assignTicket.php" method="post" -->
         <form id="assignForm"  class="relative p-5 lg:px-20 flex flex-col md:flex-row items-center justify-center">
+            <input type="hidden" name="ticket_id" value="<?php print $_POST['ticket_id'] ?>">
             <main class="flex justify-between w-full">
                 <div class="w-full md:w-1/2 p-5 md:px-0 mx-5">
                     <div class="bg-gray-900 border border-red-500 w-full h-full p-5 pt-8">
@@ -27,7 +28,8 @@
                         <input type="text" id="searchUsers" class="mb-2"><br>
                         <section class="h-40 overflow-auto">
                             <!-- 1.input as check-box for users -->
-                            <?php require '../controller/assignTicketController/displayUsers.php' ?>
+                            <div>Hamza</div>
+                            <div>Moaad</div>
                         </section>
                     </div>
                 </div> 
@@ -39,9 +41,8 @@
                         </h3>
                         <input type="text" id="searchDepartments" class="mb-2"><br>
                         <section class="h-40 overflow-auto">
-                        <div>Finance</div>
-                        <div>Finance</div>
-                        <div>Finance</div>
+                            <!-- 2.input as check-box for departments -->
+                            <?php require '../controller/assignTicketController/displayDepartments.php' ?>
                         </section>
                     </div>
                 </div> 
@@ -87,6 +88,6 @@
     <!-- tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- scripts -->
-    <script src="scripts/assignTicket.js"></script>
+    <script src="scripts/updateTicket.js"></script>
 </body>
 </html>
