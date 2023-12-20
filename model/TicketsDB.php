@@ -74,6 +74,21 @@ class TicketsDB {
         }
     }
 
+    public function displayTicketsAsJSON2($userId) {
+        try {
+            $sql = "SELECT * FROM tickets WHERE created_by = :userId";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
+            $stmt->execute();
+            // Fetch the row as an associative array
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $result;
+        } catch (PDOException $e) {
+            die('Display failed: ' . $e->getMessage());
+        }
+    }
+
     public function updateTicket($id, $updateParams) {
         try {
             // Build the SET clause dynamically based on the keys in $updateParams

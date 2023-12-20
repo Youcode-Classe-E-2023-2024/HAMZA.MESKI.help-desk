@@ -50,10 +50,13 @@ session_start();
         <section id="home_child2" class=" w-full h-[88.6%] bg-red-400 container mx-auto p-6 rounded-lg shadow">
             <main class="flex justify-between">
                 <div></div>
-                <form action="assignTicket.php">
-                    <input type="hidden" name="" value="">
-                    <button type="submit" class="bg-green-400 rounded-md p-2">create ticket</button>
-                </form>
+                <div class="flex gap-1">
+                    <a href="iCreated.php" class="bg-blue-400 rounded-md p-2">I Created</a>
+                    <form action="assignTicket.php">
+                        <input type="hidden" name="" value="">
+                        <button type="submit" class="bg-green-400 rounded-md p-2">create ticket</button>
+                    </form>
+                </div>
             </main>
             <table id="DataTable" class="display" style="width:100%">
                 <thead>
