@@ -20,8 +20,10 @@ session_start();
     <div id="USERID" value=<?php print $_SESSION['user-id']; ?>></div>
     <!-- father -->
     <section id="home_father" class="h-screen ">
-        <nav class="h-20 bg-pink-500 flex justify-between px-2">
-            <div></div>
+        <nav class="h-20 bg-pink-500 flex items-center justify-between px-2">
+            <div>
+                <a href="../signup.php">Log-out</a>
+            </div>
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
