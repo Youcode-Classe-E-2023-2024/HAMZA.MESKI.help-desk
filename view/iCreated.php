@@ -18,6 +18,12 @@
 <body class="font-sans bg-gray-100">
 
     <div id="USERID" value=<?php print $_SESSION['user-id']; ?>></div>
+    <nav class="h-20 bg-pink-500 flex justify-between px-2">
+            <div></div>
+                <div class="profileButton flex items-center gap-2 cursor-pointer">
+        <strong>Ms+</strong>
+        <div class="h-12 w-12 rounded-full bg-black" style="background-image: url('../images/jordan.png'); background-size: cover;"></div>
+    </div>        </nav>
 
     <a href="home.php" class="block text-blue-500 hover:underline my-4 ml-4">Back</a>
 

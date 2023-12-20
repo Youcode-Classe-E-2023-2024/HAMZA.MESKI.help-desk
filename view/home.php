@@ -47,7 +47,7 @@ session_start();
         <!-- child2 -->
         <div id="userId" userId="<?php echo $_SESSION['user-id'] ?>"></div>
         <section id="home_child2" class="HIDDEN w-full h-[88.6%] container mx-auto p-6 rounded-lg shadow">
-            <main class="flex justify-between">
+            <main class="flex justify-between mb-6">
                 <div></div>
                 <div class="flex gap-1">
                     <a href="iCreated.php" class="bg-blue-400 rounded-md p-2">I Created</a>
