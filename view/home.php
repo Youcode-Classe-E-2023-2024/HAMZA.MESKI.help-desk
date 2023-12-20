@@ -82,6 +82,7 @@ session_start();
     <script src="scripts/switchingPages.js"></script>
     <script src="scripts/DataTable.js"></script>
     <script src="scripts/filter.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
