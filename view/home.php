@@ -57,20 +57,20 @@ session_start();
                     </form>
                 </div>
             </main>
-            <table id="DataTable" class="display" style="width:100%">
-                <thead>
+            <table id="DataTable" class="min-w-full bg-white border border-gray-300 shadow-md rounded-md overflow-hidden">
+                <thead class="bg-gray-200 text-gray-700">
                     <tr>
-                        <th>created by:</th>
-                        <th>subject:</th>
-                        <th>department:</th>
-                        <th>status:</th>
-                        <th>priority:</th>
-                        <th>action</th>
-                        <!-- Add other column headers as needed -->
+                    <th class="py-2 px-4">Created By</th>
+                    <th class="py-2 px-4">Subject</th>
+                    <th class="py-2 px-4">Department</th>
+                    <th class="py-2 px-4">Status</th>
+                    <th class="py-2 px-4">Priority</th>
+                    <th class="py-2 px-4">Action</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
+
         </section>
     </section>
     <!-- tailwind CDN -->

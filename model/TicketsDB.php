@@ -141,6 +141,25 @@ class TicketsDB {
         }
     }
 
+    public function updateTicketStatus($id, $status){
+    try {
+        $query = "UPDATE tickets SET status = :status WHERE id = :id";
+        $stmt = $this->pdo->prepare($query);
+
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+
+        // Execute the query
+        $stmt->execute();
+
+        // Check if the update was successful or handle errors accordingly
+        return $stmt->rowCount() > 0; // Returns true if the update was successful, false otherwise
+    } catch (PDOException $e) {
+        die('Update failed: ' . $e->getMessage());
+    }
+    }
+
+
     public function deleteTicket($id) {
         try {
             $stmt = $this->pdo->prepare("DELETE FROM tickets WHERE id = :id");

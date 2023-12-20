@@ -56,13 +56,21 @@ $(document).ready(function () {
                     {"data": "status"},
                     {"data": "priority"},
                     {
-                        data: 'id',
-                        render: function (data) {
-                            return '<form action="handleTicket.php" method="post">' +
-                                '<button type="submit" name="btn" class="text-blue-500 hover:underline mr-2">Handle</button>' +
-                                '<input name="ticket_id_DT" type="hidden" value="' + data + '">' +
-                                '</form>';
-                        }
+                        
+                            data: 'id',
+                            render: function (data, type, row) {
+                                return '<form action="handleTicket.php" method="post">' +
+                                    '<button type="submit" name="btn" class="text-blue-500 hover:underline mr-2">Handle</button>' +
+                                    '<input name="ticket_id" type="hidden" value="' + data + '">' +
+                                    '<input name="created_by" type="hidden" value="' + row.created_by + '">' +
+                                    '<input name="subject" type="hidden" value="' + row.subject + '">' +
+                                    '<input name="department" type="hidden" value="' + row.department + '">' +
+                                    '<input name="status" type="hidden" value="' + row.status + '">' +
+                                    '<input name="priority" type="hidden" value="' + row.priority + '">' +
+                                    '</form>';
+                            }
+                        
+                        
                     }
                 ]
             });
