@@ -66,7 +66,7 @@ class TicketsDB {
             $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
             $stmt->execute();
             // Fetch the row as an associative array
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
             return $result;
         } catch (PDOException $e) {

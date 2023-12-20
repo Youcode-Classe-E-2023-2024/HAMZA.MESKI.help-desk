@@ -1,8 +1,9 @@
-<?php 
-    session_start(); 
+<?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 </head>
+
 <body>
+    <div id="USERID" value=<?php print $_SESSION['user-id']; ?>></div>
     <!-- father -->
     <section id="home_father" class="h-screen ">
         <nav class="h-20 bg-pink-500 flex justify-between px-2">
@@ -22,7 +25,7 @@
             <?php require_once '../controller/LoggerDispaly.php' ?>
         </nav>
         <!-- child1 -->
-        <section id="home_child1" class=" h-[88.6%]">
+        <section id="home_child1" class="HIDDEN h-[88.6%]">
             <section id="home_child1_son" class=" w-full h-full bg-green-400 grid grid-cols-5">
                 <main id="open_section" class=" h-full flex items-center HIDDEN">
                     <ion-icon name="chevron-forward-outline" id="open_icon" class="text-3xl cursor-pointer"></ion-icon>
@@ -43,7 +46,7 @@
             </section>
         </section>
         <!-- child2 -->
-        <div id="userId" userId = "<?php echo $_SESSION['user-id'] ?>"></div>
+        <div id="userId" userId="<?php echo $_SESSION['user-id'] ?>"></div>
         <section id="home_child2" class=" w-full h-[88.6%] bg-red-400 container mx-auto p-6 rounded-lg shadow">
             <main class="flex justify-between">
                 <div></div>
@@ -52,6 +55,20 @@
                     <button type="submit" class="bg-green-400 rounded-md p-2">create ticket</button>
                 </form>
             </main>
+            <table id="DataTable" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>created by:</th>
+                        <th>subject:</th>
+                        <th>department:</th>
+                        <th>status:</th>
+                        <th>priority:</th>
+                        <th>action</th>
+                        <!-- Add other column headers as needed -->
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </section>
     </section>
     <!-- tailwind CDN -->
@@ -64,4 +81,5 @@
     <script src="scripts/DataTable.js"></script>
     <script src="scripts/filter.js"></script>
 </body>
+
 </html>
