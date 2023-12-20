@@ -41,7 +41,18 @@ $(document).ready(function () {
                         }
                     },
                     {"data": "subject"},
-                    {"data": "department"},
+                    {"data": "department", 
+                        "render": function (data) {
+                            // Format the department values
+                            let newData = data.replace(/&/g, ' - ')
+                            let lastIndex = newData.lastIndexOf('-');
+        
+                            if (lastIndex !== -1) {
+                                newData = newData.slice(0, lastIndex) + ' ' + newData.slice(lastIndex + 1);
+                            }
+                            return newData;
+                        }        
+                    },
                     {"data": "status"},
                     {"data": "priority"},
                     {

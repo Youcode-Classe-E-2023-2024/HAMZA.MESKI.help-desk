@@ -7,6 +7,6 @@
 // for (const el of TICKET) {
 
 // }
-// console.log(TICKET[2].textContent.split('Assigned to: ')[1].trim());// this code detect the priority it could be: very-important important low
+console.log(TICKET[2].textContent.split('Assigned to: ')[1].trim());// this code detect the priority it could be: very-important important low
 
 
