@@ -78,6 +78,22 @@ class UsersDB {
         }
     }
 
+    public function displayUsersAsJSON() {
+        try {
+            $stmt = $this->pdo->prepare("SELECT * FROM users");
+    
+            // Execute the statement
+            $stmt->execute();
+    
+            // Fetch all rows as an associative array
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $result;
+        } catch (PDOException $e) {
+            die('Display failed: ' . $e->getMessage());
+        }
+    }
+
     public function displayUserById($userId) {
         try {
             $stmt = $this->pdo->prepare("SELECT * FROM users WHERE id = :userId");
