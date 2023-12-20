@@ -4,5 +4,4 @@
     $tickets = $tickets_database->displayTicketsAsJSON($userId);
     $json_tickets = json_encode($tickets);
     print $json_tickets;
-
 ?>
